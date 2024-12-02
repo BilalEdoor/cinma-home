@@ -39,7 +39,6 @@ span
 
   position: relative;
   width: 30vw;
-  border-radius: 50%;
   box-shadow: 0 0 25px solid transparent;
   cursor: pointer;
   transition: 0.2s linear;
@@ -52,7 +51,7 @@ span
  {
   transition: all 0.5s ease-in-out;
   position: relative;
-  border-radius: 50%;
+  border-radius: 25%;
   box-shadow: 0 0 25px solid transparent;
   cursor: pointer;
   transition: 0.2s linear;
@@ -64,6 +63,7 @@ span
   width: 75%;
   filter: grayscale(0);
   transition: filter 0.5s;
+
  }
 
  .home-img img:hover
@@ -163,6 +163,9 @@ span
   }
   61%, 80%{
     content:"Historical";
+  }
+  81%, 100%{
+    content:"imagination";
   }
 }
 @media(max-width: 1000px)

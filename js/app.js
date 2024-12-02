@@ -1,125 +1,95 @@
-const mainheading = document.body;
+// add componants at section 1
+// Create the header element
+const header = document.createElement('header');
 
-const hero = document.createElement('div');
-mainheading.appendChild(hero);
-hero.setAttribute('class' , 'page_sec')
+// Create the logo element
+const logo = document.createElement('a');
+logo.href = '#';
+logo.textContent = 'Cinma in home';
+logo.classList.add('logo');
+logo.style.fontFamily = 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif';
+header.appendChild(logo);
 
-const sec1 = document.createElement('section')
+// Create the navigation menu
+const nav = document.createElement('nav');
+const navMenu = document.createElement('div');
+navMenu.classList.add('nav_menu');
+nav.classList.add('nav_menu');
+navMenu.id = 'nav_menu';
+
+// Create the navigation list
+const navMenuList = document.createElement('ul');
+navMenuList.classList.add('nav_menu_list');
+
+// Create navigation items
+const navItems = [
+  { href: '#', text: 'Home' },
+  { href: '#section1', text: 'About us' },
+  { href: '#section2', text: 'Our movies' },
+  { href: '#section3', text: 'Series' },
+  { href: '#section4', text: 'Favorite' },
+  { href: '#section5', text: 'Contant us' },
+];
+
+navItems.forEach(item => {
+  const li = document.createElement('li');
+  li.classList.add('nav_menu_item');
+
+  const a = document.createElement('a');
+  a.href = item.href;
+  a.textContent = item.text;
+  a.classList.add('nav_menu_link');
+  li.appendChild(a);
+
+  navMenuList.appendChild(li);
+});
+const lgnbtn = document.createElement("div")
+lgnbtn.classList.add("loginbtn")
+navMenuList.appendChild(lgnbtn)
+lgnbtn.innerHTML =` <li class="nav_menu_item"><button class="login-button">Login</button> </li> `
+const l = document.querySelector(".login-button");
+navMenu.appendChild(navMenuList);
+nav.appendChild(navMenu);
+header.appendChild(nav);
+
+
+// Append the header to the body
+document.body.appendChild(header);
+
+const sec1 = document.querySelector("#section1")
 const elem1 = document.createElement('h2');
-const container1 = document.createElement('div');
-container1.setAttribute('class','landing__container')
-elem1.style.cssText = " font-size: 40px; font-weight: bold;";
 const photo = document.createElement('div');
 photo.setAttribute('class','home-img') ;
 sec1.appendChild(photo);
 photo.style.float ='right'
-photo.innerHTML = '<img class="HOME=IMG" src="./Images/0850B817-EAA8-4F02-9761-CE857BDABAF6.JPG"alt="">';
-
-// *****************************************************
-
-
-// ==== Animate on Scroll Initialize  ==== //
-AOS.init();
-
-// ==== GSAP Animations ==== //
-// ==== LOGO  ==== //
-gsap.from(".logo", {
-  opacity: 0,
-  y: -10,
-  delay: 1,
-  duration: 0.5,
-});
-// ==== NAV-MENU ==== //
-gsap.from(".nav_menu_list .nav_menu_item", {
-  opacity: 0,
-  y: -10,
-  delay: 1.4,
-  duration: 0.5,
-  stagger: 0.3,
-});
-// ==== TOGGLE BTN ==== //
-gsap.from(".btn", {
-  opacity: 0,
-  y: -10,
-  delay: 1.4,
-  duration: 0.5,
-});
-
-gsap.from(".info-text", {
-  opacity: 0,
-  y: 20,
-  delay: 2.8,
-  duration: 1,
-});
-gsap.from(".typing-text", {
-  opacity: 0,
-  y: 20,
-  delay: 2.8,
-  duration: 1,
-});
-// ==== CTA BUTTONS ==== //
-gsap.from(".social-icons", {
-  opacity: 0,
-  y: 20,
-  delay: 2.8,
-  duration: 1,
-});
-// ==== TEAM IMAGE ==== //
-gsap.from(".main-img img", {
-  opacity: 0,
-  y: 20,
-  delay: 3,
-  duration: 1,
-});
-
-gsap.from(".home-img", {
-  opacity: 0,
-  y: 20,
-  delay: 3,
-  duration: 1,
-});
-
-
-// *****************************************************
-
+//insrt image home
+photo.innerHTML = '<img class="home-img" src="">';
+const container1 = document.querySelector(".container1")
 elem1.textContent = 'About us';
-hero.appendChild(sec1);
-sec1.appendChild(container1)
 container1.appendChild(elem1)
 const para1 = document.createElement('p');
 para1.textContent = 'Hello, I am the student Bilal Muhammad Mahmoud Edoor, I study in the Faculty of Information Technology and Computer Engineering, specializing at Palestine Polytechnic University. This site provides an introduction to myself, the skills I possess, and some of the projects I have worked on.';
+elem1.style.cssText = " font-size: 40px; font-weight: bold;";
 para1.style.cssText = "font-size: 18px;"
 
 
 container1.appendChild(para1);
-sec1.setAttribute('id',"section1")
-sec1.setAttribute('data-nav',"section 1")
-sec1.setAttribute('class',"your-active-class")
 
 
-const sec2 = document.createElement('section')
+const sec2 = document.querySelector("#section2")
 const elem2 = document.createElement('h2');
-const container2 = document.createElement('div');
-container2.setAttribute('class','landing__container')
-elem2.textContent = 'Our movies';
 elem2.style.cssText = " font-size: 40px; font-weight: bold;";
 
-////----------------------------------------------------------------------------------
-
-hero.appendChild(sec2);
-sec2.appendChild(container2);
+const container2 = document.querySelector(".container2")
+elem2.textContent = 'Our Movis';
 container2.appendChild(elem2)
-sec2.setAttribute('id',"section2")
-sec2.setAttribute('data-nav',"section 2")
-sec2.setAttribute('class',"cards-container")
-
 
 //create a cards
 const C  = document.createElement('div');
 C.setAttribute('class','cards')
 sec2.appendChild(C);
 
-
+//array contains my movies
 const cardData = [
  
   {
@@ -378,6 +348,7 @@ const cardData = [
     watchpage:''
   },
 ];
+//in this loop i am trying to get the image src, description, title and button text of each object in the array
 
 for (let i = 0; i < cardData.length; i++) {
   const card = cardData[i];
@@ -388,7 +359,6 @@ for (let i = 0; i < cardData.length; i++) {
  cardElement.setAttribute = ( "data-aos-duration","1000")
   const bannerImage = document.createElement('div');
   bannerImage.classList.add('banner-image');
-  // bannerImage.innerHTML = `<img src="${card.imageSrc}" alt="">`;
 
   const wrapper = document.createElement('div');
   wrapper.classList.add('wrapper');
@@ -407,43 +377,21 @@ for (let i = 0; i < cardData.length; i++) {
   cardElement.style.cssText =  `background-image: url("${card.imageSrc}") ` 
 }
 
+//section 3 _ series
+const sec3 = document.querySelector("#section3")
+const elem3 = document.createElement('h2');
+elem3.style.cssText = " font-size: 40px; font-weight: bold;";
 
+const container3 = document.querySelector(".container3")
+elem3.textContent = 'Series';
+container3.appendChild(elem3)
 
-
-
-
-
-
-
-
-const sec5 = document.createElement('section')
-const elem5 = document.createElement('h2');
-const container5 = document.createElement('div');
-container5.setAttribute('class','landing__container')
-
-
-elem5.textContent = 'Series';
-elem5.style.cssText = " font-size: 40px; font-weight: bold;";
-
-hero.appendChild(sec5);
-sec5.appendChild(container5)
-container5.appendChild(elem5)
-
-
-sec5.setAttribute('id',"section5")
-sec5.setAttribute('class',"cards_container")
-
-sec5.setAttribute('data-nav',"section 5")
-
-
-
-//------------------------------------------------------------
-
-
+//create a cards
 const C1  = document.createElement('div');
 C1.setAttribute('class','cards')
-sec5.appendChild(C1);
+sec3.appendChild(C1);
 
+//array of my series
 const cardData5 = [
   {
     imageSrc:'',
@@ -673,13 +621,14 @@ const cardData5 = [
 
   {
     imageSrc: '',
-    title: 'My portfolio',
+    title: 'Series',
     description: 'HTML CSS and JS',
     buttonText: 'watch The episode',
     pagewatch: ''
   },
   // Add more card data objects with different images, titles, and descriptions
 ];
+//in this loop i am trying to get the image src, description, title and button text of each object in the array
 
 for (let i = 0; i < cardData5.length; i++) {
   const card = cardData5[i];
@@ -708,7 +657,7 @@ for (let i = 0; i < cardData5.length; i++) {
   
 
 }
-
+//animation of card
 gsap.from(".card", {
   opacity: 0,
   y: 20,
@@ -716,83 +665,71 @@ gsap.from(".card", {
   duration: 1,
 });
 
-//------------------------------------------------------------
-
-const sec3 = document.createElement('section')
-const elem3 = document.createElement('h2');
-const container3 = document.createElement('div');
-container3.setAttribute('class','landing__container')
-elem3.style.cssText = " font-size: 40px; font-weight: bold;";
 
 
-elem3.textContent = 'Favorite';
-hero.appendChild(sec3);
-sec3.appendChild(container3);
-container3.appendChild(elem3)
-const para3 = document.createElement('p');
-para3.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.';
-container3.appendChild(para3);
-sec3.setAttribute('id',"section3")
-para3.style.cssText = "font-size: 18px;"
-
-
-
-
-const sec4 = document.createElement('section')
+const sec4 = document.querySelector("#section4")
 const elem4 = document.createElement('h2');
-const container4 = document.createElement('div');
-container4.setAttribute('class','landing__container')
 
-
-elem4.textContent = 'Contact us';
-elem4.style.cssText = " font-size: 40px; font-weight: bold;";
-
-hero.appendChild(sec4);
+const container4 = document.querySelector(".container4")
 sec4.appendChild(container4)
+elem4.textContent = 'Faviorte';
 container4.appendChild(elem4)
+
 const para4 = document.createElement('p');
-para4.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.';
+para4.textContent = 'Hello, I am the student Bilal Muhammad Mahmoud Edoor, I study in the Faculty of Information Technology and Computer Engineering, specializing at Palestine Polytechnic University. This site provides an introduction to myself, the skills I possess, and some of the projects I have worked on.';
+container4.appendChild(para4);
+elem4.style.cssText = " font-size: 40px; font-weight: bold;";
 para4.style.cssText = "font-size: 18px;"
 
-container4.appendChild(para4);
-sec4.setAttribute('id',"section4")
-sec4.setAttribute('data-nav',"section 4")
 
+const sec5 = document.querySelector("#section5")
+const elem5 = document.createElement('h2');
+
+const container5= document.querySelector(".container5")
+elem5.textContent = 'Contact Us';
+container5.appendChild(elem5)
+
+const para5 = document.createElement('p');
+para5.textContent = 'Hello, I am the student Bilal Muhammad Mahmoud Edoor, I study in the Faculty of Information Technology and Computer Engineering, specializing at Palestine Polytechnic University. This site provides an introduction to myself, the skills I possess, and some of the projects I have worked on.';
+container5.appendChild(para5);
+elem5.style.cssText = " font-size: 40px; font-weight: bold;";
+para5.style.cssText = "font-size: 18px;"
+
+//when i clicl on login button it will redirect to login page
 function goToNextPage() {
-  window.location.href = "./loginpage.html"; // استبدل newpage.html باسم الصفحة المستهدفة
+  window.location.href = ".loginpage.html";
 }
-
-
+lgnbtn.addEventListener('click', goToNextPage)
+//check for user name and passwoed correct or not
 function openhome() {
-  const loginButton = document.getElementById('loginButton');
   const usernameInput = document.getElementById('login__input');
   const passwordInput = document.getElementById('button login__submit');
 
 
   if (usernameInput == "bilal" && passwordInput == "1234") {
-  // إضافة مستمع للأحداث لزر تسجيل الدخول والخروج
-loginButton.addEventListener('click', () => {
-  window.location.href = "./project2.html";
-   
-})
+  //if correct open main page 
+    window.location.href = "./project2.html";
+}}
 
-  }
-  
 
-}
+const navLinks = document.querySelectorAll('nav a');
 
-  const btn = document.getElementsByClassName('.theme-button');
-  btn.addEventListener('click',function (){
-    const root = document.querySelector('html');
-    root.classList.toggle('dark');
+navLinks.forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();   
+ // Prevent default behavior of following the link
 
-    if (root.classList.contains('dark')) {
-      btn.textContent = 'Light Mode';
-    } else {
-      btn.textContent = 'Dark Mode';
+    const targetId = link.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop,
+        behavior: 'smooth'   
+
+      });
     }
   });
+});
 
-
-  
  
