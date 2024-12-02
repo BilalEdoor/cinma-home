@@ -30,7 +30,7 @@ const navItems = [
   { href: '#section4', text: 'Favorite' },
   { href: '#section5', text: 'Contant us' },
 ];
-
+// set to anu navbar item his info
 navItems.forEach(item => {
   const li = document.createElement('li');
   li.classList.add('nav_menu_item');
@@ -642,6 +642,7 @@ for (let i = 0; i < cardData5.length; i++) {
 
   const wrapper = document.createElement('div');
   wrapper.classList.add('wrapper');
+  // use concatunation to get the image src, description, title and button text of each object in the array
   wrapper.innerHTML = `<h1>${card.title}</h1><p>${card.description}</p>`;
 
   const buttonWrapper = document.createElement('div');
@@ -680,20 +681,6 @@ para4.textContent = 'Hello, I am the student Bilal Muhammad Mahmoud Edoor, I stu
 container4.appendChild(para4);
 elem4.style.cssText = " font-size: 40px; font-weight: bold;";
 para4.style.cssText = "font-size: 18px;"
-
-
-const sec5 = document.querySelector("#section5")
-const elem5 = document.createElement('h2');
-
-const container5= document.querySelector(".container5")
-elem5.textContent = 'Contact Us';
-container5.appendChild(elem5)
-
-const para5 = document.createElement('p');
-para5.textContent = 'Hello, I am the student Bilal Muhammad Mahmoud Edoor, I study in the Faculty of Information Technology and Computer Engineering, specializing at Palestine Polytechnic University. This site provides an introduction to myself, the skills I possess, and some of the projects I have worked on.';
-container5.appendChild(para5);
-elem5.style.cssText = " font-size: 40px; font-weight: bold;";
-para5.style.cssText = "font-size: 18px;"
 
 //when i clicl on login button it will redirect to login page
 function goToNextPage() {

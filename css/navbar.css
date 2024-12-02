@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   list-style-type: none;
+  position: relative;
 }
 
 .nav_menu_list .nav_menu_item {
@@ -71,11 +72,11 @@ header {
 
   nav.active
   {
-    display: block;
+    display: flex;
   }
 
   nav a {
-    display: block;
+    display: flex;
     font-size: 2rem;
     margin: 3rem 0;
 
@@ -108,7 +109,8 @@ nav a{
   
 
   
-
+  
+  
   
   .login-button {
     background-color: #b74b4b; /* Green */
